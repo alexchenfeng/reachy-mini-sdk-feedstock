@@ -1,0 +1,89 @@
+context:
+  version: 1.3.3
+  build_number: '2'
+
+package:
+  name: reachy-mini-sdk
+  version: ${{ version }}
+
+source:
+  git: http://git.cineneural.com:30030/llama-chatbot/reachy_mini.git
+
+build:
+  number: ${{ build_number }}
+  script: ${{ PYTHON }} -m pip install .
+  python:
+    entry_points:
+    - reachy-mini-app-assistant = reachy_mini.apps.app:main
+    - reachy-mini-daemon = reachy_mini.daemon.app.main:main
+    - reachy-mini-reflash-motors = reachy_mini.tools.reflash_motors:main
+  noarch: python
+
+requirements:
+  host:
+  - python >=3.10
+  - setuptools
+  - pip
+  run:
+  - python >=3.10
+  - pip >=25
+  - rich
+  - questionary
+  - websockets <16,>=12
+  - toml
+  - rustypot >=1.4.2
+  - pyyaml >=6.0
+  - requests >=2.28.0
+  # - pytest  # extra == "dev"
+  # - pytest-asyncio  # extra == "dev"
+  # - ruff ==0.12.0 # extra == "dev"
+  # - onshape-to-robot ==1.7.6 # extra == "dev"
+  # - pre-commit  # extra == "dev"
+  # - mypy ==1.18.2 # extra == "dev"
+  # - types-requests  # extra == "dev"
+  # - types-toml  # extra == "dev"
+  # - pynput  # extra == "examples"
+  # - mujoco ==3.3.0 # extra == "mujoco"
+  # - onnxruntime ==1.22.1 # extra == "nn-kinematics"
+  # - placo ==0.9.14 # sys_platform != "win32" and extra == "placo-kinematics"
+  # - pygobject <=3.46.0,>=3.42.2 # extra == "gstreamer"
+  # - rerun-sdk ==0.27.2 # extra == "rerun"
+  # - urdf-parser-py ==0.0.4 # extra == "rerun"
+  # - semver <4,>=3 # extra == "wireless-version"
+  # - nmcli >=1.5 # sys_platform == "linux" and extra == "wireless-version"
+  # - pollen_bmi088_imu_library  # sys_platform == "linux" and extra == "wireless-version"
+  # - gpiozero >=2.0.0 # sys_platform == "linux" and extra == "wireless-version"
+  # - lgpio >=0.2.2.0 # sys_platform == "linux" and extra == "wireless-version"
+  # - reachy_mini [dev] # extra == "all"
+  # - reachy_mini [examples] # extra == "all"
+  # - reachy_mini [mujoco] # extra == "all"
+  # - reachy_mini [nn_kinematics] # extra == "all"
+  # - reachy_mini [placo_kinematics] # extra == "all"
+  # - reachy_mini [gstreamer] # extra == "all"
+  # - reachy_mini [rerun] # extra == "all"
+  # - reachy_mini [wireless-version] # extra == "all"
+  - numpy >=2.2.5
+  - scipy <2.0.0,>=1.15.3
+  - reachy-mini-motor-controller ==1.5.5
+  - eclipse-zenoh-python ==1.9.0
+  - py-opencv <=5.0
+  - cv2-enumerate-cameras >=1.2.1
+  - psutil
+  - jinja2
+  - uvicorn
+  - fastapi
+  - pyserial
+  - huggingface_hub >=1.3.0
+  - python-sounddevice <0.6,>=0.5.1
+  - pysoundfile >=0.13.1
+  - reachy-mini-rust-kinematics >=1.0.3
+  - asgiref
+  - aiohttp
+  - log-throttling ==0.0.3
+  - pyusb >=1.2.1
+  - libusb-package >=1.0.26.3
+
+about:
+  description: "Reachy Mini is an open-source, expressive robot made for hackers and AI builders."
+  license_file:
+  - LICENSE
