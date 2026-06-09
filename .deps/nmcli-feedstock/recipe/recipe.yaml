@@ -1,0 +1,38 @@
+context:
+  version: 1.7.0
+  build_number: '0'
+
+package:
+  name: nmcli
+  version: ${{ version }}
+
+source:
+- url: https://pypi.org/packages/source/n/nmcli/nmcli-${{ version }}.tar.gz
+  sha256: 4fb17b6c33d276a264a27b7109fa1d70987570536fa8852b51830f9f7732f982
+
+build:
+  number: ${{ build_number }}
+  script: ${{ PYTHON }} -m pip install .
+  noarch: python
+
+requirements:
+  host:
+  - python >=3.7
+  - setuptools>=61.0
+  - wheel
+  - pip
+  run:
+  - python >=3.7
+
+tests:
+- python:
+    imports:
+    - nmcli
+    pip_check: true
+
+about:
+  summary: A python wrapper library for the network-manager cli client
+  description: "mcli is a python wrapper library for the network-manager cli client."
+  license: MIT
+  license_file:
+  - LICENSE.txt

@@ -1,0 +1,48 @@
+context:
+  version: '2.0'
+  build_number: '0'
+
+package:
+  name: colorzero
+  version: ${{ version }}
+
+source:
+- url: https://pypi.org/packages/source/c/colorzero/colorzero-${{ version }}.tar.gz
+  sha256: e7d5a5c26cd0dc37b164ebefc609f388de24f8593b659191e12d85f8f9d5eb58
+
+build:
+  number: ${{ build_number }}
+  script: ${{ PYTHON }} -m pip install .
+  noarch: python
+
+requirements:
+  build:
+    - python
+    - pip
+  host:
+  - python
+  - pip
+  - setuptools
+  - wheel
+  run:
+  - python
+  - setuptools
+  # - pkginfo  # extra == 'doc'
+  # - sphinx  # extra == 'doc'
+  # - sphinx-rtd-theme  # extra == 'doc'
+  # - pytest  # extra == 'test'
+  # - pytest-cov  # extra == 'test'
+
+tests:
+- python:
+    imports:
+    - colorzero
+    pip_check: true
+
+about:
+  homepage: 'https://github.com/waveform80/colorzero'
+  summary: Yet another Python color library
+  description: "colorzero is a color manipulation library for Python"
+  license: BSD-3-Clause
+  repository: https://github.com/waveform80/colorzero/
+  documentation: https://colorzero.readthedocs.io/

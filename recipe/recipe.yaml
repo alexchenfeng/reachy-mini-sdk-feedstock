@@ -40,6 +40,11 @@ requirements:
   - pygobject >=3.56.3
   - rerun-sdk >=0.33.0
   - urdf-parser-py ==0.0.4
+  - semver >=3,<4
+  - lgpio >=0.2.2.0
+  - gpiozero >=2.0.0
+  - nmcli
+  - pollen-bmi088-imu-library
   # - pytest  # extra == "dev"
   # - pytest-asyncio  # extra == "dev"
   # - ruff ==0.12.0 # extra == "dev"
@@ -50,12 +55,6 @@ requirements:
   # - types-toml  # extra == "dev"
   #
   # - pynput  # extra == "examples"
-  #
-  # - semver <4,>=3 # extra == "wireless-version"
-  # - nmcli >=1.5 # sys_platform == "linux" and extra == "wireless-version"
-  # - pollen_bmi088_imu_library  # sys_platform == "linux" and extra == "wireless-version"
-  # - gpiozero >=2.0.0 # sys_platform == "linux" and extra == "wireless-version"
-  # - lgpio >=0.2.2.0 # sys_platform == "linux" and extra == "wireless-version"
   #
   - numpy >=2.2.5
   - scipy <2.0.0,>=1.15.3

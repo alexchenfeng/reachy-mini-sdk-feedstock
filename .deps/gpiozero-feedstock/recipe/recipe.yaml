@@ -1,0 +1,55 @@
+context:
+  version: 2.0.1
+  build_number: '0'
+
+package:
+  name: gpiozero
+  version: ${{ version }}
+
+source:
+- url: https://pypi.org/packages/source/g/gpiozero/gpiozero-${{ version }}.tar.gz
+  sha256: d4ea1952689ec7e331f9d4ebc9adb15f1d01c2c9dcfabb72e752c9869ab7e97e
+
+build:
+  number: ${{ build_number }}
+  script: ${{ PYTHON }} -m pip install .
+  python:
+    entry_points:
+    - pinout = gpiozerocli.pinout:main
+    - pintest = gpiozerocli.pintest:main
+  noarch: python
+
+requirements:
+  build:
+    - python
+    - pip
+  host:
+  - python >=3.9
+  - pip
+  - setuptools
+  - wheel
+  run:
+  - python >=3.9
+  - colorzero
+  # - importlib-metadata (~=4.6) # python_version < "3.10"
+  # - importlib-resources (~=5.0) # python_version < "3.10"
+  # - sphinx-rtd-theme (>=1.0) # extra == 'doc'
+  # - sphinx (>=4.0) # extra == 'doc'
+  # - pytest  # extra == 'test'
+  # - pytest-cov  # extra == 'test'
+
+tests:
+- python:
+    imports:
+    - gpiozero
+    pip_check: true
+
+about:
+  homepage: https://gpiozero.readthedocs.io/
+  summary: A simple interface to GPIO devices with Raspberry Pi
+  description: "A simple interface to GPIO devices with `Raspberry Pi`, developed and maintained by `Ben Nuttall` and `Dave Jones`"
+  license: BSD-3-Clause
+  license_file:
+  - LICENSE.rst
+  repository: https://github.com/gpiozero/gpiozero
+  documentation: https://gpiozero.readthedocs.io/
