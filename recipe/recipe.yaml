@@ -1,6 +1,6 @@
 context:
   version: 1.3.3
-  build_number: '3'
+  build_number: '4'
 
 package:
   name: reachy-mini-sdk
@@ -39,7 +39,7 @@ requirements:
   - placo >=0.9.23
   - pygobject >=3.56.3
   - rerun-sdk >=0.33.0
-  - urdf-parser-py ==0.0.4
+  - urdf-parser-py >=0.0.4
   - semver >=3,<4
   - lgpio >=0.2.2.0
   - gpiozero >=2.0.0
@@ -58,8 +58,8 @@ requirements:
   #
   - numpy >=2.2.5
   - scipy <2.0.0,>=1.15.3
-  - reachy-mini-motor-controller ==1.5.5
-  - eclipse-zenoh-python ==1.9.0
+  - reachy-mini-motor-controller >=1.5.5
+  - eclipse-zenoh-python >=1.9.0
   - py-opencv <=5.0
   - cv2-enumerate-cameras >=1.2.1
   - psutil
@@ -73,7 +73,7 @@ requirements:
   - reachy-mini-rust-kinematics >=1.0.3
   - asgiref
   - aiohttp
-  - log-throttling ==0.0.3
+  - log-throttling >=0.0.3
   - pyusb >=1.2.1
   - libusb-package >=1.0.26.3
 
